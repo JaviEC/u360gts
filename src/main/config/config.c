@@ -734,7 +734,7 @@ static void resetConf(void)
     //TRACKER PROTOCOL
     masterConfig.telemetry_protocol = TP_GPS_TELEMETRY;
     masterConfig.start_tracking_distance = 10;
-    masterConfig.start_tracking_altitude = 1;
+    masterConfig.start_tracking_altitude = 4;
    	masterConfig.telemetry_min_sats = 6;
    	masterConfig.telemetry_diy_gps = 0;
 
@@ -745,6 +745,7 @@ static void resetConf(void)
    	featureClear(FEATURE_GPS);
    	masterConfig.gps_min_sats = 6;
    	masterConfig.update_home_by_local_gps = 0;
+    masterConfig.gpsConfig.homeBeeper = 1;
 
    	// Estimation Position System (EPS)
    	featureClear(FEATURE_EPS);

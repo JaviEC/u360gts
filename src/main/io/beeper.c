@@ -98,7 +98,7 @@ static const uint8_t beep_sos[] = {
 };
 // Arming when GPS is fixed
 static const uint8_t beep_armedGpsFix[] = {
-    5, 5, 15, 5, 5, 5, 15, 30, BEEPER_COMMAND_STOP
+    5, 5, 15, 5, 5, 5, 15, 30,5, 5, 15, 5, 5, 5, 15, 30,5, 5, 15, 5, 5, 5, 15, 30, BEEPER_COMMAND_STOP
 };
 // Ready beeps. When gps has fix and copter is ready to fly.
 static const uint8_t beep_readyBeep[] = {
@@ -264,9 +264,9 @@ void beeperGpsStatus(void)
         beep_multiBeeps[i] = BEEPER_COMMAND_STOP;
 
         beeper(BEEPER_MULTI_BEEPS);    //initiate sequence
-    } else {
+    }/* else {
         beeper(BEEPER_RX_SET);
-    }
+    }*/
 }
 #endif
 
@@ -276,18 +276,15 @@ void beeperGpsStatus(void)
  */
 void beeperUpdate(void)
 {
-    // If beeper option from AUX switch has been selected
-    if (IS_RC_MODE_ACTIVE(BOXBEEPERON)) {
-#ifdef GPS
+
+/*#ifdef GPS
         if (feature(FEATURE_GPS)) {
             beeperGpsStatus();
         } else {
             beeper(BEEPER_RX_SET);
         }
-#else
-        beeper(BEEPER_RX_SET);
-#endif
-    }
+#endif*/
+
 
     // Beeper routine doesn't need to update if there aren't any sounds ongoing
     if (currentBeeperEntry == NULL) {
